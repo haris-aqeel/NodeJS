@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <%- include('../include/headscript'); -%>
+</head>
+<body>
+    <!-- begin app -->
+    <div class="app">
+        <!-- begin app-wrap -->
+        <div class="app-wrap">
+            <!-- begin pre-loader -->
+            <div class="loader">
+                <div class="h-100 d-flex justify-content-center">
+                    <div class="align-self-center">
+                        <img src="assets/img/loader/loader.svg" alt="loader">
+                    </div>
+                </div>
+            </div>
+            <!-- end pre-loader -->
+            <%- include('../include/header'); -%>
+            <!-- begin app-container -->
+            <div class="app-container">
+                <%- include('../include/aside'); -%>
+                <!-- end app-navbar -->
+                <!-- begin app-main -->
+                <div class="app-main" id="main">
+                    <!-- begin container-fluid -->
+                    <div class="container-fluid">
+                        <!-- begin row -->
+                        <div class="row">
+                            <div class="col-md-12 m-b-30">
+                                <!-- begin page title -->
+                                <div class="d-block d-sm-flex flex-nowrap align-items-center">
+                                    <div class="page-title mb-2 mb-sm-0">
+                                        <h1><%=title %></h1>
+                                    </div>
+                                    
+                                </div>
+                                <!-- end page title -->
+                            </div>
+                        </div>
+                        <!-- end row -->
+                       
+                        <!-- begin row -->
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="card card-statistics">
+                                    <div class="card-body">
+                                        <div class="datatable-wrapper table-responsive">
+                                            <table class="display compact table table-striped table-bordered">
+                                                
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Login Email Address</td>
+                                                        <td><%=USERdata.login_mail %></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>EOI Payment ID</td>
+                                                        <td><%=USERdata.EOIpayment_id %></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>REGISTRATION Application ID</td>
+                                                        <td><%=USERdata.AppID %></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>REGISTRATION Payment ID</td>
+                                                        <td><%=USERdata.pay_id %></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Name Of Entity</td>
+                                                        <td><%=USERdata.NameofEntity %></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Type of Entity</td>
+                                                        <td><%=USERdata.TypeofEntity %></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Address</td>
+                                                        <td><%=USERdata.Address %></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Pin Code</td>
+                                                        <td><%=USERdata.Pincode %></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>PAN</td>
+                                                        <td><%=USERdata.Pan %></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>No. of Staffs</td>
+                                                        <td><%=USERdata.NofStaff %></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Name of Authorized Signatory</td>
+                                                        <td><%=USERdata.NameofAuthorisedSig %></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Contact No. of Authorized Signatory</td>
+                                                        <td><%=USERdata.ContactofAuthorisedSig %></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Email of Authothorized Signatory</td>
+                                                        <td><%=USERdata.EmailofAuthorisedSig %></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Years of Experience in Training</td>
+                                                        <td><%=USERdata.YearsofexpinTr %></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Turnover 2019-2020</td>
+                                                        <td><%=USERdata.Turnover %></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>State</td>
+                                                        <td><%=USERdata.name %></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>No. of Entities under Network</td>
+                                                        <td><%=USERdata.NoofEntityundernetwork %></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>GST</td>
+                                                        <td><%=USERdata.GST %></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Bank Name</td>
+                                                        <td><%=USERdata.bankname %></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Account Number</td>
+                                                        <td><%=USERdata.acno %></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Account Name</td>
+                                                        <td><%=USERdata.acname %></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>IFSC CODE</td>
+                                                        <td><%=USERdata.ifsc %></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Date</td>
+                                                        <td><%=USERdata.date %></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Status</td>
+                                                        <td>
+                                                            <span class="btn btn-xs btn-success">Active</span>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end row -->
+                    </div>
+                    <!-- end container-fluid -->
+                </div>
+                <!-- end app-main -->
+            </div>
+            <!-- end app-container -->
+            <!-- begin footer -->
+            <footer class="footer">
+                <div class="row">
+                    <div class="col-12 col-sm-6 text-center text-sm-left">
+                        <p>&copy; Copyright 2019. All rights reserved.</p>
+                    </div>
+                    <div class="col  col-sm-6 ml-sm-auto text-center text-sm-right">
+                    </div>
+                </div>
+            </footer>
+            <!-- end footer -->
+        </div>
+        <!-- end app-wrap -->
+    </div>
+    <!-- end app -->
+    <%- include('../include/footerscript'); -%>
+    
+</body>
+</html>

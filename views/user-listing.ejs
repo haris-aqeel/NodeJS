@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <%- include('../include/headscript'); -%>
+</head>
+
+<body>
+    <!-- begin app -->
+    <div class="app">
+        <!-- begin app-wrap -->
+        <div class="app-wrap">
+            <!-- begin pre-loader -->
+            <div class="loader">
+                <div class="h-100 d-flex justify-content-center">
+                    <div class="align-self-center">
+                        <img src="assets/img/loader/loader.svg" alt="loader">
+                    </div>
+                </div>
+            </div>
+            <!-- end pre-loader -->
+            <%- include('../include/header'); -%>
+            <!-- begin app-container -->
+            <div class="app-container">
+                <%- include('../include/aside'); -%>
+                <!-- end app-navbar -->
+                <!-- begin app-main -->
+                <div class="app-main" id="main">
+                    <!-- begin container-fluid -->
+                    <div class="container-fluid">
+                        <!-- begin row -->
+                        <div class="row">
+                            <div class="col-md-12 m-b-30">
+                                <!-- begin page title -->
+                                <div class="d-block d-sm-flex flex-nowrap align-items-center">
+                                    <div class="page-title mb-2 mb-sm-0">
+                                        <h1><%=title %></h1>
+                                    </div>
+                                    
+                                </div>
+                                <!-- end page title -->
+                            </div>
+                        </div>
+                        
+                        <!-- end row -->
+                        <!-- begin row -->
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <div class="card card-statistics">
+                                    <div class="card-body">
+                                        <form method="GET">
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Phone Number</label>
+                                                <input type="text" pattern="[\d]{10}" minlength="10" maxlength="10"  class="form-control" id="exampleInputEmail1"  title="Numeric Values and Length of 10 characters are permitted" aria-describedby="emailHelp" placeholder="Enter Number" name="ContactofAuthorisedSig">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="disabledSelect">State</label>
+                                                <select class="form-control" name="State">
+                                                    <option value="">Select State</option>
+                                                    <%
+                                                    if(state.length!=0){
+                                                    var i=1;
+                                                    state.forEach(function(data){
+                                                    %>
+                                                    <option value="<%=data.id %>"><%=data.name %></option>
+                                                    <%  i++; }) %>
+                                                    <% } %>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="Status">Status</label>
+                                                <select class="form-control" name="Status">
+                                                    <option value="">Select Status</option>
+                                                    <option value="1">Active</option>
+                                                    <option value="0">InActive</option>
+                                                </select>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">Search</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                           
+                        </div>
+                        <!-- end row -->
+                        <!-- begin row -->
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="card card-statistics">
+                                    <div class="card-body">
+                                        <div class="datatable-wrapper table-responsive">
+                                            <table id="datatable" class="display compact table table-striped table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Name of Entity</th>
+                                                        <th>State</th>
+                                                        <th>Application ID</th>
+                                                        <th>Payment Status</th>
+                                                        <th>Status</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                   
+                                                    <%
+                                                    if(regQueryData.length!=0){
+                                                    var i=1;
+                                                    regQueryData.forEach(function(data){
+                                                    %>
+                                                    <tr>
+                                                        <td><%=data.NameofEntity %></td>
+                                                        <td><%=data.name %></td>
+                                                        <td><%=data.AppID %></td>
+                                                        <td>
+                                                        <%
+                                                            if(data.pay_id){
+                                                        %>
+                                                                <span class="btn btn-xs btn-success">Paid</span>
+                                                        <%  
+                                                        }else{
+                                                        %>
+                                                                <span class="btn btn-xs btn-warning">Pending</span>
+                                                        <%
+                                                        }
+                                                        %>
+                                                            </td>
+                                                        <td>
+                                                        <%
+                                                            if(data.status == 1 ){
+                                                        %>
+                                                                <span class="btn btn-xs btn-success">Active</span>
+                                                        <%  
+                                                        }else{
+                                                        %>
+                                                                <span class="btn btn-xs btn-danger">InActive</span>
+                                                        <%
+                                                        }
+                                                        %>
+                                                            </td>
+                                                        <td><span class="btn btn-xs btn-success" data-toggle="modal" data-target="#s<%=data.id %>">View Details</span></td>
+                                                    </tr>
+                                                    <!-- Large Modal -->
+                                                    <div class="modal fade" id="s<%=data.id %>" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
+                                                        <div class="modal-dialog modal-lg" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title"><%=data.NameofEntity %></h5>
+                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <div class="row mt-1">
+                                                                        <div class="col-xl-6">
+                                                                            Login Email Address
+                                                                        </div>
+                                                                        <div class="col-xl-6">
+                                                                            <%=data.login_mail %>
+                                                                        </div>
+                                                                       
+                                                                    </div>
+                                                                    <div class="row mt-1">
+                                                                        <div class="col-xl-6">
+                                                                            EOI Payment Id
+                                                                        </div>
+                                                                        <div class="col-xl-6">
+                                                                            <%=data.EOIpayment_id %>
+                                                                        </div>
+                                                                       
+                                                                    </div>
+                                                                    <div class="row mt-1">
+                                                                        <div class="col-xl-6">
+                                                                            REGISTRATION Application ID
+                                                                        </div>
+                                                                        <div class="col-xl-6">
+                                                                            <%=data.AppID %>
+                                                                        </div>
+                                                                       
+                                                                    </div>
+                                                                    <div class="row mt-1">
+                                                                        <div class="col-xl-6">
+                                                                            REGISTRATION Payment Id
+                                                                        </div>
+                                                                        <div class="col-xl-6">
+                                                                            
+                                                                            <%
+                                                            if(data.pay_id){
+                                                        %>
+                                                                <%=data.pay_id %>
+                                                        <%  
+                                                        }else{
+                                                        %>
+                                                                <span class="btn btn-xs btn-warning">Pending</span>
+                                                        <%
+                                                        }
+                                                        %>
+                                                                        </div>
+                                                                       
+                                                                    </div>
+                                                                    <div class="row mt-1">
+                                                                        <div class="col-xl-6">
+                                                                            Type of Entity
+                                                                        </div>
+                                                                        <div class="col-xl-6">
+                                                                            <%=data.TypeofEntity %>
+                                                                        </div>
+                                                                       
+                                                                    </div>
+                                                                    <div class="row mt-1">
+                                                                        <div class="col-xl-6">
+                                                                            Address
+                                                                        </div>
+                                                                        <div class="col-xl-6">
+                                                                            <%=data.Address %>
+                                                                        </div>
+                                                                       
+                                                                    </div><div class="row mt-1">
+                                                                        <div class="col-xl-6">
+                                                                            Pin Code 
+
+                                                                        </div>
+                                                                        <div class="col-xl-6">
+                                                                            <%=data.Pincode %>
+                                                                        </div>
+                                                                       
+                                                                    </div><div class="row mt-1">
+                                                                        <div class="col-xl-6">
+                                                                            PAN
+                                                                        </div>
+                                                                        <div class="col-xl-6">
+                                                                            <%=data.Pan %>
+                                                                        </div>
+                                                                       
+                                                                    </div><div class="row mt-1">
+                                                                        <div class="col-xl-6">
+                                                                            No. of Staffs
+                                                                        </div>
+                                                                        <div class="col-xl-6">
+                                                                            <%=data.NofStaff %>
+                                                                        </div>
+                                                                       
+                                                                    </div><div class="row mt-1">
+                                                                        <div class="col-xl-6">
+                                                                            Name of Authorized Signatory 
+
+                                                                        </div>
+                                                                        <div class="col-xl-6">
+                                                                            <%=data.NameofAuthorisedSig %>
+                                                                        </div>
+                                                                       
+                                                                    </div><div class="row mt-1">
+                                                                        <div class="col-xl-6">
+                                                                            Contact No. of Authorized Signatory 
+
+                                                                        </div>
+                                                                        <div class="col-xl-6">
+                                                                            <%=data.ContactofAuthorisedSig %>
+                                                                        </div>
+                                                                       
+                                                                    </div><div class="row mt-1">
+                                                                        <div class="col-xl-6">
+                                                                            Email of Authothorized Signatory 
+
+                                                                        </div>
+                                                                        <div class="col-xl-6">
+                                                                            <%=data.EmailofAuthorisedSig %>
+                                                                        </div>
+                                                                       
+                                                                    </div><div class="row mt-1">
+                                                                        <div class="col-xl-6">
+                                                                            Years of Experience in Training
+                                                                        </div>
+                                                                        <div class="col-xl-6">
+                                                                            <%=data.YearsofexpinTr %>
+                                                                        </div>
+                                                                       
+                                                                    </div><div class="row mt-1">
+                                                                        <div class="col-xl-6">
+                                                                            Turnover 2019-2020 
+
+                                                                        </div>
+                                                                        <div class="col-xl-6">
+                                                                            <%=data.Turnover %>
+                                                                        </div>
+                                                                       
+                                                                    </div><div class="row mt-1">
+                                                                        <div class="col-xl-6">
+                                                                            State
+                                                                        </div>
+                                                                        <div class="col-xl-6">
+                                                                            <%=data.name %>
+                                                                        </div>
+                                                                       
+                                                                    </div><div class="row mt-1">
+                                                                        <div class="col-xl-6">
+                                                                            No. of Entities under Network 
+                                                                        </div>
+                                                                        <div class="col-xl-6">
+                                                                            <%=data.NoofEntityundernetwork %>
+                                                                        </div>
+                                                                       
+                                                                    </div><div class="row mt-1">
+                                                                        <div class="col-xl-6">
+                                                                            Partner
+                                                                        </div>
+                                                                        <div class="col-xl-6">
+                                                                            <%=data.partner %>
+                                                                        </div>
+                                                                       
+                                                                    </div>
+                                                                    <div class="row mt-1">
+                                                                        <div class="col-xl-6">
+                                                                            Date
+                                                                        </div>
+                                                                        <div class="col-xl-6">
+                                                                            <%=data.date %>
+                                                                        </div>
+                                                                       
+                                                                    </div>
+                                                                    
+                                                                    <div class="row mt-1">
+                                                                        <div class="col-xl-6">
+                                                                            Status
+                                                                        </div>
+                                                                        <div class="col-xl-6">
+                                                                            <%
+                                                                                if(data.status == 1 ){
+                                                                            %>
+                                                                                    <span class="btn btn-xs btn-success">Active</span>
+                                                                            <%  
+                                                                            }else{
+                                                                            %>
+                                                                                    <span class="btn btn-xs btn-danger">InActive</span>
+                                                                            <%
+                                                                            }
+                                                                            %>
+                                                                        </div>
+                                                                       
+                                                            
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <%
+                                                                                if(data.pay_id && data.status == 1 ){
+                                                                            %>
+                                                                    <form method="GET" action="/regApprove?">
+                                                                        <input name="id" value="<%=data.id%>" class="d-none"/>
+                                                                        <button type="submit" class="btn btn-danger" >Un Approve this <%=data.partner %> USER as <%=data.name %></button>
+                                                                    </form>
+                                                                    <%  
+                                                                            }
+                                                                            %>
+                                                                            <%
+                                                                            if(data.pay_id && data.status == 0 ){
+                                                                        %>
+                                                                <form method="GET" action="/regApprove?">
+                                                                    <input name="id" value="<%=data.id%>" class="d-none"/>
+                                                                    <button type="submit" class="btn btn-success" >Approve this <%=data.partner %> USER as <%=data.name %></button>
+                                                                </form>
+                                                                <%  
+                                                                        }
+                                                                        %>
+                                                                    <!-- <a class="btn btn-warning" href="<%=data.file %>">Download Documents</a> -->
+                                                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <%  i++; }) %>
+                                                    <% } else{ %>
+                                                        <tr>
+                                                            <td colspan="5">No Data Found</td>
+                                                        </tr>
+                                                    <% } %>
+                                                </tbody>
+                                                <tfoot>
+                                                    <tr>
+                                                        <th>Name of Entity</th>
+                                                        <th>State</th>
+                                                        <th>Application ID</th>
+                                                        <th>Payment Status</th>
+                                                        <th>Status</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </tfoot>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end row -->
+                    </div>
+                    <!-- end container-fluid -->
+                </div>
+                <!-- end app-main -->
+            </div>
+            <!-- end app-container -->
+            <!-- begin footer -->
+            <footer class="footer">
+                <div class="row">
+                    <div class="col-12 col-sm-6 text-center text-sm-left">
+                        <p>&copy; Copyright 2019. All rights reserved.</p>
+                    </div>
+                    <div class="col  col-sm-6 ml-sm-auto text-center text-sm-right">
+                    </div>
+                </div>
+            </footer>
+            <!-- end footer -->
+        </div>
+        <!-- end app-wrap -->
+    </div>
+    <!-- end app -->
+    <%- include('../include/footerscript'); -%>
+    
+</body>
+</html>

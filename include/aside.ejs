@@ -1,0 +1,161 @@
+<!-- begin app-nabar -->
+<aside class="app-navbar">
+    <!-- begin sidebar-nav -->
+    <div class="sidebar-nav scrollbar scroll_light">
+        <% if(cookies.partner == 'Super Admin' ){ %>
+        <ul class="metismenu " id="sidebarNav">
+            <li>
+                <a class="has-arrow" href="javascript:void(0)" aria-expanded="false">
+                    <i class="nav-icon ti ti-rocket"></i>
+                    <span class="nav-title">EOI</span>
+                </a>
+                <ul aria-expanded="false">
+                    <li> <a href='eoi-np?ContactofAuthorisedSig=&State=&Status'>Networking Partner</a> </li>
+                    <li> <a href='eoi-ip?ContactofAuthorisedSig=&State=&Status'>Implementing Partner</a> </li>
+                </ul>
+            </li>
+            <li>
+                <a class="has-arrow" href="javascript:void(0)" aria-expanded="false">
+                    <i class="nav-icon ti ti-rocket"></i>
+                    <span class="nav-title">USER</span>
+                </a>
+                <ul aria-expanded="false">
+                    <li> <a href='reg-np?ContactofAuthorisedSig=&State=&Status'>Networking Partner</a> </li>
+                    <li> <a href='reg-ip?ContactofAuthorisedSig=&State=&Status'>Implementing Partner</a> </li>
+                    <li> <a href='reg-center?ContactofCenterManager=&State=&Status'>Center</a> </li>
+                </ul>
+            </li>
+            <li>
+                <a class="has-arrow" href="javascript:void(0)" aria-expanded="false">
+                    <i class="nav-icon ti ti-rocket"></i>
+                    <span class="nav-title">Vacancy</span>
+                </a>
+                <ul aria-expanded="false">
+                    <li> <a href='joblisting?Website='>Job Listing</a> </li>
+                    <li> <a href='jobcreate'>Create Job</a> </li>
+                    <li> <a href='job?Phone=&Website='>Job Query</a> </li>
+                </ul>
+            </li>
+            <li>
+                <a class="has-arrow" href="javascript:void(0)" aria-expanded="false">
+                    <i class="nav-icon ti ti-rocket"></i>
+                    <span class="nav-title">Notice</span>
+                </a>
+                <ul aria-expanded="false">
+                    <li> <a href='noticelisting?Website='>Notice Listing</a> </li>
+                    <li> <a href='noticecreate'>Create Notice</a> </li>
+                </ul>
+            </li>
+            <li>
+                <a class="has-arrow" href="javascript:void(0)" aria-expanded="false">
+                    <i class="nav-icon ti ti-rocket"></i>
+                    <span class="nav-title">Country</span>
+                </a>
+                <ul aria-expanded="false">
+                    <li> <a href='countrylisting?countryname='>Country Listing</a> </li>
+                    <li> <a href='countrycreate'>Create Country</a> </li>
+                </ul>
+            </li>
+            <li>
+                <a class="has-arrow" href="javascript:void(0)" aria-expanded="false">
+                    <i class="nav-icon ti ti-rocket"></i>
+                    <span class="nav-title">Guideline</span>
+                </a>
+                <ul aria-expanded="false">
+                    <li> <a href='guidelinelisting?subject='>Guideline Listing</a> </li>
+                    <li> <a href='guidelinecreate'>Create Guideline</a> </li>
+                </ul>
+            </li>
+            <li>
+                <a class="has-arrow" href="javascript:void(0)" aria-expanded="false">
+                    <i class="nav-icon ti ti-rocket"></i>
+                    <span class="nav-title">Batches</span>
+                </a>
+                <ul aria-expanded="false">
+                    <li> <a href='batchlisting?courseName='>Batch Listing</a> </li>
+                    <li> <a href='batchcreate'>Create Batch</a> </li>
+                </ul>
+            </li>
+            <li>
+                <a class="has-arrow" href="javascript:void(0)" aria-expanded="false">
+                    <i class="nav-icon ti ti-rocket"></i>
+                    <span class="nav-title">Case Studies</span>
+                </a>
+                <ul aria-expanded="false">
+                    <li> <a href='caselisting?heading='>Case Studies Listing</a> </li>
+                    <li> <a href='casecreate'>Create Case Studies</a> </li>
+                </ul>
+            </li>
+            <li>
+                <a class="has-arrow" href="javascript:void(0)" aria-expanded="false">
+                    <i class="nav-icon ti ti-rocket"></i>
+                    <span class="nav-title">Domain</span>
+                </a>
+                <ul aria-expanded="false">
+                    <li> <a href='domainlisting?name='>Domain Listing</a> </li>
+                    <li> <a href='domaincreate'>Create Domain</a> </li>
+                    <li> <a href='courselisting?coursename=&domainid='>Course Listing</a> </li>
+                    <li> <a href='coursecreate'>Create Course</a> </li>
+                </ul>
+            </li>
+            <li>
+                <a  href="contact?Phone=&Website=" aria-expanded="false">
+                    <i class="nav-icon ti ti-rocket"></i>
+                    <span class="nav-title">Contact Query</span>
+                </a>
+            </li>
+            <li>
+                <a  href="donation?Phone=&Website=" aria-expanded="false">
+                    <i class="nav-icon ti ti-rocket"></i>
+                    <span class="nav-title">Donations</span>
+                </a>
+            </li>
+        </ul>
+        <% } %>
+        <% if(cookies.partner == 'Networking Partner'){ %>
+        <ul class="metismenu " id="sidebarNav">
+            <li>
+                <a  href="changePassword" aria-expanded="false">
+                    <i class="nav-icon ti ti-rocket"></i>
+                    <span class="nav-title">Change Password</span>
+                </a>
+            </li>
+            <li>
+                <a class="has-arrow" href="javascript:void(0)" aria-expanded="false">
+                    <i class="nav-icon ti ti-rocket"></i>
+                    <span class="nav-title">My Application</span>
+                </a>
+                <ul aria-expanded="false">
+                    <li> <a href='myEOIapplication'>EOI</a> </li>
+                    <li> <a href='myUSERapplication'>Registration</a> </li>
+                </ul>
+            </li>
+            <li> <a  href='myippartners?ContactofAuthorisedSig=&Status'><i class="nav-icon ti ti-rocket"></i>
+                <span class="nav-title">Implementing Partners</span></a> </li>
+        </ul>
+        <% } %>
+        <% if(cookies.partner == 'Implementing Partner'){ %>
+        <ul class="metismenu " id="sidebarNav">
+            <li>
+                <a  href="changePassword" aria-expanded="false">
+                    <i class="nav-icon ti ti-rocket"></i>
+                    <span class="nav-title">Change Password</span>
+                </a>
+            </li>
+            <li>
+                <a class="has-arrow" href="javascript:void(0)" aria-expanded="false">
+                    <i class="nav-icon ti ti-rocket"></i>
+                    <span class="nav-title">My Application</span>
+                </a>
+                <ul aria-expanded="false">
+                    <li> <a href='myEOIapplication'>EOI</a> </li>
+                    <li> <a href='myUSERapplication'>Registration</a> </li>
+                </ul>
+            </li>
+            <li> <a  href='mycenters?ContactofCenterManager=&Status'><i class="nav-icon ti ti-rocket"></i>
+                <span class="nav-title">Centers</span></a> </li>
+        </ul>
+        <% } %>
+    </div>
+    <!-- end sidebar-nav -->
+</aside>

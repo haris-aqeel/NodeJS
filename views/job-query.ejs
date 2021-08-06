@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <%- include('../include/headscript'); -%>
+</head>
+<body>
+    <!-- begin app -->
+    <div class="app">
+        <!-- begin app-wrap -->
+        <div class="app-wrap">
+            <!-- begin pre-loader -->
+            <div class="loader">
+                <div class="h-100 d-flex justify-content-center">
+                    <div class="align-self-center">
+                        <img src="assets/img/loader/loader.svg" alt="loader">
+                    </div>
+                </div>
+            </div>
+            <!-- end pre-loader -->
+            <%- include('../include/header'); -%>
+            <!-- begin app-container -->
+            <div class="app-container">
+                <%- include('../include/aside'); -%>
+                <!-- end app-navbar -->
+                <!-- begin app-main -->
+                <div class="app-main" id="main">
+                    <!-- begin container-fluid -->
+                    <div class="container-fluid">
+                        <!-- begin row -->
+                        <div class="row">
+                            <div class="col-md-12 m-b-30">
+                                <!-- begin page title -->
+                                <div class="d-block d-sm-flex flex-nowrap align-items-center">
+                                    <div class="page-title mb-2 mb-sm-0">
+                                        <h1><%=title %></h1>
+                                    </div>
+                                    
+                                </div>
+                                <!-- end page title -->
+                            </div>
+                        </div>
+                        <!-- end row -->
+                        <!-- begin row -->
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <div class="card card-statistics">
+                                    <div class="card-body">
+                                        <form method="GET" action="/job?" novalidate>
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Phone Number</label>
+                                                <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Phone Number" name="Phone">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="disabledSelect">Website</label>
+                                                <select class="form-control" name="Website">
+                                                    <option value="">Select Website</option>
+                                                    <option value="livelihooddevelopmentfoundation.org">livelihooddevelopmentfoundation.org</option>
+                                                    <option value="thefordinternational.org">thefordinternational.org</option>
+                                                </select>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">Search</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                           
+                        </div>
+                        <!-- end row -->
+                        <!-- begin row -->
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="card card-statistics">
+                                    <div class="card-body">
+                                        <div class="datatable-wrapper table-responsive">
+                                            <table id="datatable" class="display compact table table-striped table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Name</th>
+                                                        <th>Phone Number</th>
+                                                        <th>Email Address</th>
+                                                        <th>Resume</th>
+                                                        <th>Website</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                   
+                                                    <%
+                                                    if(jobQueryData.length!=0){
+                                                    var i=1;
+                                                    jobQueryData.forEach(function(data){
+                                                    %>
+                                                    <tr>
+                                                        <td><%=data.Name %></td>
+                                                        <td><%=data.Phone %></td>
+                                                        <td><%=data.Email %></td>
+                                                        <td><a class="btn btn-round btn-outline-success" href="uploads/<%=data.Image %>" target="_blank"><%=data.Image %></a></td>
+                                                        <td><%=data.Website %></td>
+                                                    </tr>
+                                                    <%  i++; }) %>
+                                                    <% } else{ %>
+                                                        <tr>
+                                                            <td colspan="7">No Data Found</td>
+                                                        </tr>
+                                                    <% } %>
+                                                </tbody>
+                                                <tfoot>
+                                                    <tr>
+                                                        <th>Name</th>
+                                                        <th>Phone Number</th>
+                                                        <th>Email Address</th>
+                                                        <th>Resume</th>
+                                                        <th>Website</th>
+                                                    </tr>
+                                                </tfoot>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end row -->
+                    </div>
+                    <!-- end container-fluid -->
+                </div>
+                <!-- end app-main -->
+            </div>
+            <!-- end app-container -->
+            <!-- begin footer -->
+            <footer class="footer">
+                <div class="row">
+                    <div class="col-12 col-sm-6 text-center text-sm-left">
+                        <p>&copy; Copyright 2019. All rights reserved.</p>
+                    </div>
+                    <div class="col  col-sm-6 ml-sm-auto text-center text-sm-right">
+                    </div>
+                </div>
+            </footer>
+            <!-- end footer -->
+        </div>
+        <!-- end app-wrap -->
+    </div>
+    <!-- end app -->
+    <%- include('../include/footerscript'); -%>
+    
+</body>
+</html>

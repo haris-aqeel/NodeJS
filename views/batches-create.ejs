@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <%- include('../include/headscript'); -%>
+</head>
+
+<body>
+    <!-- begin app -->
+    <div class="app">
+        <!-- begin app-wrap -->
+        <div class="app-wrap">
+            <!-- begin pre-loader -->
+            <div class="loader">
+                <div class="h-100 d-flex justify-content-center">
+                    <div class="align-self-center">
+                        <img src="assets/img/loader/loader.svg" alt="loader">
+                    </div>
+                </div>
+            </div>
+            <!-- end pre-loader -->
+            <%- include('../include/header'); -%>
+                <!-- begin app-container -->
+                <div class="app-container">
+                    <%- include('../include/aside'); -%>
+                        <!-- end app-navbar -->
+                        <!-- begin app-main -->
+                        <div class="app-main" id="main">
+                            <!-- begin container-fluid -->
+                            <div class="container-fluid">
+                                <!-- begin row -->
+                                <div class="row">
+                                    <div class="col-md-12 m-b-30">
+                                        <!-- begin page title -->
+                                        <div class="d-block d-sm-flex flex-nowrap align-items-center">
+                                            <div class="page-title mb-2 mb-sm-0">
+                                                <h1>
+                                                    <%=title %>
+                                                </h1>
+                                            </div>
+
+                                        </div>
+                                        <!-- end page title -->
+                                    </div>
+                                </div>
+                                <!-- end row -->
+                                <!-- begin row -->
+                                <div class="row">
+                                    <div class="col-xl-12">
+                                        <div class="card card-statistics">
+                                            <div class="card-body">
+                                                <form method="POST" enctype="multipart/form-data">
+                                                    <div class="form-group">
+
+                                                        <input type="hidden" required minlength="3" class="d-none"
+                                                            value="<%=cookies.uid%>" name="CENID" required>
+
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="courseName">Course Name</label>
+                                                        <input type="text" required minlength="3" class="form-control"
+                                                            id="courseName" aria-describedby="emailHelp"
+                                                            placeholder="Enter Course Name" name="courseName" required>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="trainerName">Trainer Name</label>
+                                                        <input type="text" required minlength="3" class="form-control"
+                                                            id="trainerName" aria-describedby="emailHelp"
+                                                            placeholder="Enter trainerName" name="trainerName" required>
+                                                    </div>
+                                                    <div class="form-group">
+
+                                                        <label for="trainerEmail">Trainer Email</label>
+                                                        <input type="email" required minlength="3" class="form-control"
+                                                            id="heading" aria-describedby="emailHelp"
+                                                            placeholder="Enter Trainer Email" name="trainerEmail"
+                                                            required>
+                                                    </div>
+                                                    <div class="form-group">
+
+                                                        <label for="trainerPhone">Trainer Phone</label>
+                                                        <input type="text" required minlength="12" maxlength="12"
+                                                            class="form-control" id="trainerPhone"
+                                                            aria-describedby="emailHelp"
+                                                            placeholder="Enter Trainer Phone" name="trainerPhone"
+                                                            required>
+                                                    </div>
+
+                                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <!-- end row -->
+
+                            </div>
+                            <!-- end container-fluid -->
+                        </div>
+                        <!-- end app-main -->
+                </div>
+                <!-- end app-container -->
+                <!-- begin footer -->
+
+
+                <footer class="footer">
+                    <div class="row">
+                        <div class="col-12 col-sm-6 text-center text-sm-left">
+                            <p>&copy; Copyright 2019. All rights reserved.</p>
+                        </div>
+                        <div class="col  col-sm-6 ml-sm-auto text-center text-sm-right">
+                        </div>
+                    </div>
+                </footer>
+                <!-- end footer -->
+        </div>
+        <!-- end app-wrap -->
+    </div>
+    <!-- end app -->
+    <%- include('../include/footerscript'); -%>
+
+</body>
+<script>
+    var file = document.getElementById('files');
+
+    file.onchange = function (e) {
+        var ext = this.value.match(/\.([^\.]+)$/)[1];
+        switch (ext) {
+            case 'jpg':
+            case 'png':
+                console.log("File Allowed")
+                break;
+            default:
+                alert('File with jpg & png are allowed only');
+                this.value = '';
+        }
+    };
+</script>
+<script src="../assets/js/vendors.js"></script>
+
+<!-- custom app -->
+<script src="../assets/js/app.js"></script>
+
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <%- include('../include/headscript'); -%>
+</head>
+<body>
+    <!-- begin app -->
+    <div class="app">
+        <!-- begin app-wrap -->
+        <div class="app-wrap">
+            <!-- begin pre-loader -->
+            <div class="loader">
+                <div class="h-100 d-flex justify-content-center">
+                    <div class="align-self-center">
+                        <img src="assets/img/loader/loader.svg" alt="loader">
+                    </div>
+                </div>
+            </div>
+            <!-- end pre-loader -->
+            <%- include('../include/header'); -%>
+            <!-- begin app-container -->
+            <div class="app-container">
+                <%- include('../include/aside'); -%>
+                <!-- end app-navbar -->
+                <!-- begin app-main -->
+                <div class="app-main" id="main">
+                    <!-- begin container-fluid -->
+                    <div class="container-fluid">
+                        <!-- begin row -->
+                        <div class="row">
+                            <div class="col-md-12 m-b-30">
+                                <!-- begin page title -->
+                                <div class="d-block d-sm-flex flex-nowrap align-items-center">
+                                    <div class="page-title mb-2 mb-sm-0">
+                                        <h1><%=title %></h1>
+                                    </div>
+                                    
+                                </div>
+                                <!-- end page title -->
+                            </div>
+                        </div>
+                        <!-- end row -->
+                       
+                        <!-- begin row -->
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="card card-statistics">
+                                    <div class="card-body">
+                                        <div class="datatable-wrapper table-responsive">
+                                            <table class="display compact table table-striped table-bordered">
+                                                
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Application ID</td>
+                                                        <td><%=EOIdata.ApplicationID %></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Payment ID</td>
+                                                        <td><%=EOIdata.payment_id %></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Name Of Entity</td>
+                                                        <td><%=EOIdata.NameofEntity %></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Type of Entity</td>
+                                                        <td><%=EOIdata.TypeofEntity %></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Address</td>
+                                                        <td><%=EOIdata.Address %></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Pin Code</td>
+                                                        <td><%=EOIdata.Pincode %></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>PAN</td>
+                                                        <td><%=EOIdata.Pan %></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>No. of Staffs</td>
+                                                        <td><%=EOIdata.NofStaff %></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Name of Authorized Signatory</td>
+                                                        <td><%=EOIdata.NameofAuthorisedSig %></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Contact No. of Authorized Signatory</td>
+                                                        <td><%=EOIdata.ContactofAuthorisedSig %></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Email of Authothorized Signatory</td>
+                                                        <td><%=EOIdata.EmailofAuthorisedSig %></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Years of Experience in Training</td>
+                                                        <td><%=EOIdata.YearsofexpinTr %></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Turnover 2019-2020</td>
+                                                        <td><%=EOIdata.Turnover %></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>State</td>
+                                                        <td><%=EOIdata.name %></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>No. of Entities under Network</td>
+                                                        <td><%=EOIdata.NoofEntityundernetwork %></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Partner</td>
+                                                        <td><%=EOIdata.partner %></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Date</td>
+                                                        <td><%=EOIdata.date %></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Status</td>
+                                                        <td>
+                                                            <span class="btn btn-xs btn-success">Active</span>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end row -->
+                    </div>
+                    <!-- end container-fluid -->
+                </div>
+                <!-- end app-main -->
+            </div>
+            <!-- end app-container -->
+            <!-- begin footer -->
+            <footer class="footer">
+                <div class="row">
+                    <div class="col-12 col-sm-6 text-center text-sm-left">
+                        <p>&copy; Copyright 2019. All rights reserved.</p>
+                    </div>
+                    <div class="col  col-sm-6 ml-sm-auto text-center text-sm-right">
+                    </div>
+                </div>
+            </footer>
+            <!-- end footer -->
+        </div>
+        <!-- end app-wrap -->
+    </div>
+    <!-- end app -->
+    <%- include('../include/footerscript'); -%>
+    
+</body>
+</html>
